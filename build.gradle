@@ -127,6 +127,10 @@ dependencies {
         compileOnly 'org.projectlombok:lombok'
     }
     compile 'javax.validation:validation-api:1.0.0.GA'
+    compile "com.fasterxml.jackson.core:jackson-databind:2.8.1"
+    compile "com.jayway.jsonpath:json-path:2.0.0"
+
+    runtime 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.7'
 
     testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.0-M4'
     testCompile 'org.hamcrest:hamcrest-core:1.3'
