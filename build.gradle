@@ -154,7 +154,3 @@ publishing {
         maven { url System.getenv( 'TEAMBUILTING_MATCHES' ) + '/repo' }
     }
 }
-
-task stage {
-    dependsOn build
-}
