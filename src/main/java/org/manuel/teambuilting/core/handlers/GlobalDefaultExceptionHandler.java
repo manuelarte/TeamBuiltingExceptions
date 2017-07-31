@@ -1,6 +1,7 @@
 package org.manuel.teambuilting.core.handlers;
 
 import org.manuel.teambuilting.core.exceptions.ExceptionMessage;
+import org.manuel.teambuilting.core.exceptions.UserNotAllowedToModifyEntityException;
 import org.manuel.teambuilting.core.exceptions.ValidationRuntimeException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,4 +25,12 @@ public class GlobalDefaultExceptionHandler {
 		final ExceptionMessage powerhouseErrorMessage = new ExceptionMessage(status, exception.getErrorCode(), exception.getMessage(), exception.getDeveloperMessage());
 		return new ResponseEntity<>(powerhouseErrorMessage, status);
 	}
+
+	@ExceptionHandler({UserNotAllowedToModifyEntityException.class})
+	public ResponseEntity<Object> userNotAllowedToModifyEntityExceptionHandler(final UserNotAllowedToModifyEntityException exception, final WebRequest request) {
+		final HttpStatus status = HttpStatus.FORBIDDEN;
+		final ExceptionMessage powerhouseErrorMessage = new ExceptionMessage(status, "", exception.getMessage(), "");
+		return new ResponseEntity<>(powerhouseErrorMessage, status);
+	}
+
 }

@@ -152,5 +152,6 @@ publishing {
         maven { url System.getenv( 'TEAMBUILTING_TEAMS' ) + '/repo' }
         maven { url System.getenv( 'TEAMBUILTING_SPORTS' ) + '/repo' }
         maven { url System.getenv( 'TEAMBUILTING_MATCHES' ) + '/repo' }
+        maven { url System.getenv( 'TEAMBUILTING_CORE' ) + '/repo' }
     }
 }
