@@ -143,11 +143,18 @@ artifacts {
     archives javadocsJar
 }
 
-uploadArchives {
-    repositories.mavenDeployer {
-        configuration = configurations.archives
-        repository(url: "file:C:/repositories/")
-
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
     }
-
+    repositories {
+        maven { url System.getenv( 'TEAMBUILTING_PLAYERS' ) + '/repo' }
+        maven { url System.getenv( 'TEAMBUILTING_TEAMS' ) + '/repo' }
+        maven { url System.getenv( 'TEAMBUILTING_SPORTS' ) + '/repo' }
+        maven { url System.getenv( 'TEAMBUILTING_MATCHES' ) + '/repo' }
+        maven { url System.getenv( 'TEAMBUILTING_CORE' ) + '/repo' }
+        maven { url System.getenv( 'TEAMBUILTING_EXPERIENCE' ) + '/repo' }
+    }
 }
